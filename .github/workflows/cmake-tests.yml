@@ -21,7 +21,7 @@ jobs:
     - name: Update packages
       run: |
         sudo apt-get update
-        sudo apt-get install -yq mpich libmpich-dev
+        sudo apt-get install -yq mpich
         sudo apt-get install -yq valgrind
 
     - name: Checkout repo
