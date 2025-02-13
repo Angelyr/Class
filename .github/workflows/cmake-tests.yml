@@ -35,4 +35,4 @@ jobs:
 
     - name: Print Results
       if: always()
-      run: cat ${{ runner.temp }}/build/Testing/Temporary/LastTest.log
+      run: cat ../build/Testing/Temporary/LastTest.log
