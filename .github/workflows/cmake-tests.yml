@@ -33,6 +33,13 @@ jobs:
     - name: Run Test
       run: ./run.sh
 
-    - name: Print Results
+    - name: Test Results
+      if: always()
+      run: cat ../build/Testing/Temporary/LastTest.log
+
+    - name: Valgrind Test
+      run: valgrind ./run.sh
+
+    - name: Valgrind Results
       if: always()
       run: cat ../build/Testing/Temporary/LastTest.log
