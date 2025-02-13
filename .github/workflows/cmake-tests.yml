@@ -28,11 +28,11 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build
-      run: echo "hello"
-  
-    # - name: PUMI-PIC Test
-    #   run: ctest --test-dir ${{ runner.temp }}/build-pumi-pic
+      run: ./install.sh
 
-    # - name: PUMI-PIC Print
-    #   if: always()
-    #   run: cat ${{ runner.temp }}/build-pumi-pic/Testing/Temporary/LastTest.log
+    - name: Run Test
+      run: ./run.sh
+
+    - name: Print Results
+      if: always()
+      run: cat ${{ runner.temp }}/build/Testing/Temporary/LastTest.log
