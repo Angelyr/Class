@@ -27,7 +27,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Build & Run
-      run: ./install_with_args.sh .. ${{build_type}} ${{compiler}}
+      run: ./install_with_args.sh .. ${{matrix.build_type}} ${{matrix.compiler}}
 
     - name: Run Test
       run: |  
