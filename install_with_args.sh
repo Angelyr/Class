@@ -1,4 +1,6 @@
-dir=..
+dir=$1
+build_type=$2
+compiler=$3
 
 # Build Catch2
 rm $dir/Catch2 -rf
@@ -14,9 +16,6 @@ CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$dir/build-Catch2/install
 # Build Class
 rm $dir/build-class -rf
 cmake . -B $dir/build-class \
-  -DCMAKE_BUILD_TYPE=Debug
+  -DCMAKE_BUILD_TYPE=$build_type \
+  -DCMAKE_CXX_COMPILER=$compiler
 cmake --build $dir/build-class -j8
-
-# Run Tests
-cd $dir/build-class
-ctest

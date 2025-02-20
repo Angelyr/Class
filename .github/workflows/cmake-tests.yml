@@ -26,19 +26,23 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Build
-      run: ./install.sh
+    - name: Build & Run
+      run: ./install_with_args.sh .. ${{build_type}} ${{compiler}}
 
     - name: Run Test
-      run: ./run.sh
+      run: |  
+        cd ../build-class
+        ctest
 
     - name: Test Results
       if: always()
-      run: cat ../build/Testing/Temporary/LastTest.log
+      run: cat ../build-class/Testing/Temporary/LastTest.log
 
     - name: Valgrind Test
-      run: valgrind ./run.sh
+      run: |
+        cd ../build-class
+        valgrind ./test_math
 
     - name: Valgrind Results
       if: always()
-      run: cat ../build/Testing/Temporary/LastTest.log
+      run: cat ../build-class/Testing/Temporary/LastTest.log
