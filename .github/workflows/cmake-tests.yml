@@ -13,8 +13,7 @@ jobs:
     strategy:
       matrix:
         build_type: [RelWithDebInfo]
-        compiler: [g++, clang]
-        language: ['cpp']
+        compiler: [g++, clang++]
       
     steps:
 
@@ -26,7 +25,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
-    - name: Build & Run
+    - name: Build
       run: ./install_with_args.sh .. ${{matrix.build_type}} ${{matrix.compiler}}
 
     - name: Run Test
