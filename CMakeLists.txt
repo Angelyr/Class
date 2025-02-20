@@ -1,6 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
-
-project(HelloWorld)
+cmake_minimum_required(VERSION 3.20)
+project(Class)
 
 enable_testing()
 find_package(Catch2 3)
