@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        build_type: [Release, RelWithDebInfo]
-        compiler: [g++]
+        build_type: [RelWithDebInfo]
+        compiler: [g++, clang]
         language: ['cpp']
       
     steps:
@@ -21,7 +21,6 @@ jobs:
     - name: Update packages
       run: |
         sudo apt-get update
-        sudo apt-get install -yq mpich
         sudo apt-get install -yq valgrind
 
     - name: Checkout repo
